@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>飞书客户案例竞品分析报告</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+        
+        /* Header */
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px; border-radius: 12px; margin-bottom: 30px; box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3); }
+        .header h1 { font-size: 32px; margin-bottom: 10px; }
+        .header p { opacity: 0.9; font-size: 16px; }
+        .header .meta { display: flex; gap: 30px; margin-top: 20px; font-size: 14px; opacity: 0.85; }
+        
+        /* KPI Cards */
+        .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px; }
+        .kpi-card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); text-align: center; transition: transform 0.2s; }
+        .kpi-card:hover { transform: translateY(-3px); }
+        .kpi-value { font-size: 36px; font-weight: 700; color: #667eea; margin-bottom: 8px; }
+        .kpi-label { font-size: 14px; color: #666; }
+        
+        /* Section */
+        .section { background: white; border-radius: 12px; padding: 30px; margin-bottom: 25px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+        .section-title { font-size: 22px; font-weight: 600; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid #667eea; display: flex; align-items: center; gap: 10px; }
+        .section-title::before { content: ''; width: 4px; height: 24px; background: #667eea; border-radius: 2px; }
+        
+        /* Charts */
+        .chart-container { height: 400px; margin: 20px 0; }
+        .chart-row { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        @media (max-width: 900px) { .chart-row { grid-template-columns: 1fr; } }
+        
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #eee; }
+        th { background: #f8f9fa; font-weight: 600; color: #444; }
+        tr:hover { background: #fafbfc; }
+        
+        /* Testimonial Cards */
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; }
+        .testimonial-card { background: #f8f9fa; padding: 20px; border-radius: 10px; border-left: 4px solid #667eea; }
+        .testimonial-quote { font-style: italic; color: #555; margin-bottom: 12px; font-size: 15px; }
+        .testimonial-author { font-weight: 600; color: #333; font-size: 14px; }
+        .testimonial-company { color: #667eea; font-size: 13px; }
+        
+        /* ROI Highlight */
+        .roi-badge { display: inline-block; background: #e8f5e9; color: #2e7d32; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; margin: 2px; }
+        
+        /* Insights Box */
+        .insight-box { background: linear-gradient(135deg, #fff9c4 0%, #fff3e0 100%); padding: 20px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #ffa726; }
+        .insight-box h4 { color: #e65100; margin-bottom: 10px; }
+        .insight-box ul { padding-left: 20px; }
+        .insight-box li { margin-bottom: 6px; color: #555; }
+        
+        /* Footer */
+        .footer { text-align: center; padding: 30px; color: #999; font-size: 13px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>📊 飞书客户案例竞品分析报告</h1>
+            <p>基于159个公众号文章数据的深度分析 | 行业细分 · 场景亮点 · 客户证言 · ROI数据 · 产品分布</p>
+            <div class="meta">
+                <span>📅 分析时间：2026年7月</span>
+                <span>📋 数据来源：飞书和ta的朋友们公众号（终版）</span>
+                <span>🎯 分析框架：竞品分析最佳实践方法论</span>
+            </div>
+        </div>
+        
+        <!-- KPI Overview -->
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-value">159</div>
+                <div class="kpi-label">总案例数</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value">8</div>
+                <div class="kpi-label">覆盖行业</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value">57</div>
+                <div class="kpi-label">含ROI数据案例</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value">150</div>
+                <div class="kpi-label">客户证言数</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value">12</div>
+                <div class="kpi-label">核心产品数</div>
+            </div>
+        </div>
+        
+        <!-- Executive Summary -->
+        <div class="section">
+            <div class="section-title">📌 核心发现摘要</div>
+            <div class="insight-box">
+                <h4>🔍 关键洞察</h4>
+                <ul>
+                    <li><strong>行业集中度：</strong>SaaS/互联网（50例）、制造业（46例）、零售消费（43例）三大行业占比超85%，是飞书核心战场</li>
+                    <li><strong>产品矩阵：</strong>AI智能伙伴（87例）和多维表格（70例）是最高频提及产品，体现"AI+低代码"双轮驱动策略</li>
+                    <li><strong>场景聚焦：</strong>组织协同（135例）和数字化转型（122例）是最核心场景，覆盖超85%案例</li>
+                    <li><strong>ROI实证：</strong>57个案例包含量化效果数据，占比35%，证明价值可衡量</li>
+                    <li><strong>高层背书：</strong>150条客户证言中，大量来自CEO/董事长/CTO级别，体现决策层认可度</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Industry Analysis -->
+        <div class="section">
+            <div class="section-title">🏭 客户行业细分领域分析</div>
+            <div class="chart-row">
+                <div id="industryChart" class="chart-container"></div>
+                <div>
+                    <h4 style="margin-bottom: 15px; color: #444;">行业分布详情</h4>
+                    <table>
+                        <thead><tr><th>行业</th><th>案例数</th><th>占比</th></tr></thead>
+                        <tbody>
+                            <tr><td>SaaS/互联网</td><td>50</td><td>31.4%</td></tr>
+                            <tr><td>制造业</td><td>46</td><td>28.9%</td></tr>
+                            <tr><td>零售消费</td><td>43</td><td>27.0%</td></tr>
+                            <tr><td>医疗健康</td><td>8</td><td>5.0%</td></tr>
+                            <tr><td>汽车交通</td><td>7</td><td>4.4%</td></tr>
+                            <tr><td>能源化工</td><td>2</td><td>1.3%</td></tr>
+                            <tr><td>教育科技</td><td>2</td><td>1.3%</td></tr>
+                            <tr><td>农业食品</td><td>1</td><td>0.6%</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="insight-box" style="margin-top: 15px;">
+                        <h4>💡 行业洞察</h4>
+                        <ul>
+                            <li>制造业与零售消费合计占比超55%，是飞书重点深耕的实体经济赛道</li>
+                            <li>SaaS/互联网行业案例最多，体现同行对飞书产品力的高度认可</li>
+                            <li>医疗健康、汽车交通等高价值行业正在加速渗透</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Product Distribution -->
+        <div class="section">
+            <div class="section-title">🛠️ 飞书核心产品分布</div>
+            <div class="chart-row">
+                <div id="productChart" class="chart-container"></div>
+                <div>
+                    <h4 style="margin-bottom: 15px; color: #444;">产品提及频次TOP8</h4>
+                    <table>
+                        <thead><tr><th>产品</th><th>提及次数</th><th>覆盖率</th></tr></thead>
+                        <tbody>
+                            <tr><td>AI智能伙伴</td><td>87</td><td>54.7%</td></tr>
+                            <tr><td>多维表格</td><td>70</td><td>44.0%</td></tr>
+                            <tr><td>审批</td><td>66</td><td>41.5%</td></tr>
+                            <tr><td>知识库</td><td>46</td><td>28.9%</td></tr>
+                            <tr><td>会议</td><td>40</td><td>25.2%</td></tr>
+                            <tr><td>飞书项目</td><td>27</td><td>17.0%</td></tr>
+                            <tr><td>应用引擎</td><td>14</td><td>8.8%</td></tr>
+                            <tr><td>云文档</td><td>14</td><td>8.8%</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="insight-box" style="margin-top: 15px;">
+                        <h4>💡 产品策略洞察</h4>
+                        <ul>
+                            <li><strong>"AI+多维表格"</strong>构成核心卖点组合，AI智能伙伴提及率最高</li>
+                            <li>审批、知识库、会议等基础协同产品保持高频使用</li>
+                            <li>飞书项目、应用引擎等进阶产品在特定场景深度落地</li>
+                            <li>OKR、绩效等管理工具渗透率有待提升</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scene Highlights -->
+        <div class="section">
+            <div class="section-title">✨ 案例亮点场景分析</div>
+            <div id="sceneChart" class="chart-container" style="height: 350px;"></div>
+            <div class="insight-box">
+                <h4>💡 场景策略洞察</h4>
+                <ul>
+                    <li><strong>组织协同</strong>是飞书最核心的价值主张，覆盖135个案例（85%）</li>
+                    <li><strong>数字化转型</strong>作为宏观叙事贯穿122个案例，是企业采购的核心驱动力</li>
+                    <li><strong>AI应用</strong>与<strong>降本增效</strong>并列第三，体现"技术+效果"双导向</li>
+                    <li><strong>全球化</strong>场景覆盖47个案例，出海企业成为新增长点</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- ROI Data -->
+        <div class="section">
+            <div class="section-title">📈 ROI数据实证分析</div>
+            <p style="color: #666; margin-bottom: 20px;">共{analysis['roi_cases_count']}个案例包含量化效果数据，以下为典型ROI案例展示：</p>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-company">合思、汇联易、分贝通</div>
+                    <div style="font-weight: 600; margin: 8px 0; color: #333;">前期看市场，中期看效益，后期看理念——SaaS企业为何纷纷拥抱飞书</div>
+                    <div class="testimonial-quote">SaaS企业通过飞书实现降本增效：合思完成外部工单场景SOP自动化，汇联易提升研发与交付项目管理效率，分贝通建立客户全生命周期管理机制，开发工作量降低60%、客户管理效率提升1倍...</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-company">美邦服饰（美特斯邦威）</div>
+                    <div style="font-weight: 600; margin: 8px 0; color: #333;">飞书助力美邦服饰升级新零售布局</div>
+                    <div class="testimonial-quote">美邦服饰新零售5.0模式落地，通过飞书多维表格与云文档实现门店选址审批、开店全流程管理、品牌视觉统一、门店巡检及加盟商培训的全面数字化提效...</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-company">墨墨教育科技</div>
+                    <div style="font-weight: 600; margin: 8px 0; color: #333;">工作三年，飞书项目治好了我的精神内耗</div>
+                    <div class="testimonial-quote">产研团队使用飞书项目管理需求全生命周期，打通产品与客服信息链路，将APP新功能上线周期从两个月压缩至两周...</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-company">联影集团（含联影医疗、联影智能、联影智元）</div>
+                    <div style="font-weight: 600; margin: 8px 0; color: #333;">联影集团效率先锋大赛：让AI融入工作流，释放真正潜力</div>
+                    <div class="testimonial-quote">联影集团通过飞书多维表格仪表盘、AI智能工单助手、技术文档AI转换翻译工具、AI自动生成测试用例等多场景实践，推进生产运营与研发效率数字化升级...</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-company">营养工厂</div>
+                    <div style="font-weight: 600; margin: 8px 0; color: #333;">飞书多维表格AI是我们做电商的新生产工具</div>
+                    <div class="testimonial-quote">电商品牌通过飞书多维表格AI能力，在AI客服分析、AI文献阅读、AI报销三大场景实现降本增效...</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-company">海大集团</div>
+                    <div style="font-weight: 600; margin: 8px 0; color: #333;">海大集团全员4万人切换飞书，打造农牧行业数字化新标杆</div>
+                    <div class="testimonial-quote">农牧行业龙头企业4万员工全面切换飞书，打通劳动密集型、运营管理型、知识密集型三类人员的信息协同，重点改善研发管理、采购管理、产能利用等场景效率...</div>
+                </div>
+            </div>
+            <div class="insight-box" style="margin-top: 20px;">
+                <h4>💡 ROI数据洞察</h4>
+                <ul>
+                    <li>效率提升类指标最常见：审批耗时缩短、上线周期压缩、人效提升等</li>
+                    <li>成本节约类指标突出：开发工作量降低60%、人力节省40%等</li>
+                    <li>业务增长类指标涌现：客户转化周期提升40%、开店时长缩短15%等</li>
+                    <li>安全合规类指标独特：化工企业应急响应从30分钟压缩至3分钟</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Customer Testimonials -->
+        <div class="section">
+            <div class="section-title">💬 客户证言内容分析</div>
+            <p style="color: #666; margin-bottom: 20px;">共{analysis['testimonial_count']}条来自企业高管/负责人的直接证言，以下为精选代表性观点：</p>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"在大湾区，飞书就要'play with winner'，我们非常期待能和HKBN这样的头部企业一起合作。..."</div>
+                    <div class="testimonial-author">叶成辉博士，香港宽频集团总裁及营运总裁</div>
+                    <div class="testimonial-company">香港宽频（HKBN）</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"前期看市场，中期看效益，后期看理念。..."</div>
+                    <div class="testimonial-author">企业负责人</div>
+                    <div class="testimonial-company">合思、汇联易、分贝通</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"数字化和AI将是美邦服饰品牌升级的两驾马车。..."</div>
+                    <div class="testimonial-author">周成建，美特斯邦威创始人、董事长</div>
+                    <div class="testimonial-company">美邦服饰（美特斯邦威）</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"飞书不仅是一个工具，更承载了透明、灵活的管理文化和理念。..."</div>
+                    <div class="testimonial-author">奇瑞信息化相关负责人（姓名未披露）</div>
+                    <div class="testimonial-company">奇瑞集团</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"工作三年，飞书项目治好了我的精神内耗。..."</div>
+                    <div class="testimonial-author">徐王（产品经理）</div>
+                    <div class="testimonial-company">墨墨教育科技</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"使用AI之前，感觉飞书像是个通讯兵，信息同步做得很好，现在加码了AI之后，飞书更像是钢铁侠的智能管家贾维斯。..."</div>
+                    <div class="testimonial-author">薛敏（联影集团董事长）；李坤（供应链团队）；李欣桐（联影智能运维团队负责人）</div>
+                    <div class="testimonial-company">联影集团（含联影医疗、联影智能、联影智元）</div>
+                </div>
+            </div>
+            <div class="insight-box" style="margin-top: 20px;">
+                <h4>💡 证言内容洞察</h4>
+                <ul>
+                    <li><strong>文化认同型：</strong>"飞书不仅是工具，更是管理文化和理念"——强调价值观契合</li>
+                    <li><strong>效果实证型：</strong>"开发工作量降低60%"——用数据说话</li>
+                    <li><strong>战略定位型：</strong>"数字化说到最后不是改良，而是消除"——体现变革决心</li>
+                    <li><strong>生态共建型：</strong>"与飞书共创，为消费者创造极致体验"——强调伙伴关系</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Competitive Insights -->
+        <div class="section">
+            <div class="section-title">🎯 竞品分析启示与行动建议</div>
+            <div class="insight-box" style="background: linear-gradient(135deg, #e3f2fd 0%, #e8eaf6 100%); border-left-color: #1976d2;">
+                <h4 style="color: #1565c0;">📊 对钉钉的竞争启示</h4>
+                <ul>
+                    <li><strong>行业纵深：</strong>飞书在制造业、零售消费已形成标杆案例矩阵，钉钉需加强垂直行业解决方案包装</li>
+                    <li><strong>AI叙事：</strong>飞书将"AI智能伙伴"作为第一卖点高频曝光，钉钉需强化AI能力的场景化表达</li>
+                    <li><strong>ROI传播：</strong>57个案例含量化数据，钉钉应建立更系统的客户效果数据采集与传播机制</li>
+                    <li><strong>高层证言：</strong>大量CEO/董事长级别背书，钉钉需加强决策层影响力营销</li>
+                    <li><strong>全球化布局：</strong>47个全球化案例显示出海市场争夺加剧，钉钉需加速海外本地化</li>
+                </ul>
+            </div>
+            <div class="insight-box" style="background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 100%); border-left-color: #c2185b; margin-top: 15px;">
+                <h4 style="color: #ad1457;">🚀 建议行动项</h4>
+                <ul>
+                    <li>【短期】梳理钉钉现有客户案例，补充ROI量化数据，形成对标案例库</li>
+                    <li>【中期】针对飞书强势行业（制造/零售/SaaS），打造差异化解决方案与标杆客户</li>
+                    <li>【长期】构建"AI+协同"一体化叙事体系，强化钉钉AI助理的场景穿透力</li>
+                    <li>【持续】建立客户证言采集SOP，重点获取C-level高管背书内容</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>本报告由悟空AI助手自动生成 | 数据来源：飞书和ta的朋友们公众号（终版）AI表格 | 分析框架：竞品分析最佳实践方法论</p>
+            <p>报告生成时间：2026年7月6日</p>
+        </div>
+    </div>
+    
+    <script>
+        // Industry Chart
+        var industryChart = echarts.init(document.getElementById('industryChart'));
+        industryChart.setOption({
+            title: { text: '行业分布饼图', left: 'center' },
+            tooltip: { trigger: 'item', formatter: '{b}: {c} ({d}%)' },
+            legend: { orient: 'vertical', left: 'left', top: 'middle' },
+            series: [{
+                type: 'pie',
+                radius: ['40%', '70%'],
+                center: ['60%', '55%'],
+                data: [
+                    { value: 50, name: 'SaaS/互联网' },
+                    { value: 46, name: '制造业' },
+                    { value: 43, name: '零售消费' },
+                    { value: 8, name: '医疗健康' },
+                    { value: 7, name: '汽车交通' },
+                    { value: 2, name: '能源化工' },
+                    { value: 2, name: '教育科技' },
+                    { value: 1, name: '农业食品' },
+                ],
+                emphasis: { itemStyle: { shadowBlur: 10, shadowOffsetX: 0, shadowColor: 'rgba(0, 0, 0, 0.5)' } },
+                label: { formatter: '{b}\n{d}%' }
+            }]
+        });
+        
+        // Product Chart
+        var productChart = echarts.init(document.getElementById('productChart'));
+        productChart.setOption({
+            title: { text: '核心产品提及频次', left: 'center' },
+            tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+            grid: { left: '3%', right: '4%', bottom: '3%', containLabel: true },
+            xAxis: { type: 'value' },
+            yAxis: { type: 'category', data: ['云文档', '应用引擎', '飞书项目', '会议', '知识库', '审批', '多维表格', 'AI智能伙伴'] },
+            series: [{
+                type: 'bar',
+                data: [14, 14, 27, 40, 46, 66, 70, 87],
+                itemStyle: { color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [{ offset: 0, color: '#667eea' }, { offset: 1, color: '#764ba2' }]) },
+                label: { show: true, position: 'right' }
+            }]
+        });
+        
+        // Scene Chart
+        var sceneChart = echarts.init(document.getElementById('sceneChart'));
+        sceneChart.setOption({
+            title: { text: '场景类别分布', left: 'center' },
+            tooltip: { trigger: 'axis' },
+            radar: {
+                indicator: [
+                    { name: '组织协同', max: 145 },
+                    { name: '数字化转型', max: 145 },
+                    { name: '知识管理', max: 145 },
+                    { name: '项目管理', max: 145 },
+                    { name: '降本增效', max: 145 },
+                    { name: 'AI应用', max: 145 },
+                    { name: '全球化', max: 145 },
+                ]
+            },
+            series: [{
+                type: 'radar',
+                data: [{
+                    value: [135, 122, 77, 76, 76, 76, 47],
+                    name: '场景覆盖度',
+                    areaStyle: { color: 'rgba(102, 126, 234, 0.3)' },
+                    lineStyle: { color: '#667eea' },
+                    itemStyle: { color: '#667eea' }
+                }]
+            }]
+        });
+        
+        // Responsive resize
+        window.addEventListener('resize', function() {
+            industryChart.resize();
+            productChart.resize();
+            sceneChart.resize();
+        });
+    </script>
+</body>
+</html>
